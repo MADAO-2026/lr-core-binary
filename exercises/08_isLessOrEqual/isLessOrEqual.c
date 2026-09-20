@@ -8,7 +8,13 @@
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-#error TODO: Return 1 when x is less than or equal to y.
+  int sign_x = (x >> 31) & 1;
+  int sign_y = (y >> 31) & 1;
+  int diff_sign = sign_x ^ sign_y;
+  int diff = y + (~x + 1);
+  int diff_sign_diff = (diff >> 31) & 1;
+
+  return (diff_sign & sign_x) | (!diff_sign & !diff_sign_diff);
 }
 
 int main(void) {

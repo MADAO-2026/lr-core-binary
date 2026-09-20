@@ -9,7 +9,7 @@
  *   Rating: 4
  */
 int logicalNeg(int x) {
-#error TODO: Implement logical negation without using the ! operator.
+  return ((x | (~x + 1)) >> 31) + 1; 
 }
 
 int main(void) {
@@ -18,4 +18,5 @@ int main(void) {
     return 1;
   printf("%d\n", logicalNeg(x));
   return 0;
+  
 }
